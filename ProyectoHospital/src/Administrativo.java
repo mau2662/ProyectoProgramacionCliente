@@ -8,14 +8,14 @@
  *
  * @author XCPC
  */
-public class Salud extends javax.swing.JFrame {
+public class Administrativo extends javax.swing.JFrame {
 
     /**
-     * Creates new form Salud
+     * Creates new form Administrativo
      */
-    public Salud() {
+    public Administrativo() {
         initComponents();
-        this.setLocationRelativeTo(this);
+         this.setLocationRelativeTo(this);
     }
 
     /**
@@ -28,16 +28,30 @@ public class Salud extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        administrativoTitulojLabel = new javax.swing.JLabel();
         informacionjLabel = new javax.swing.JLabel();
-        volverjButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        volverjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Salud");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+
+        administrativoTitulojLabel.setText("Administrativo");
 
         informacionjLabel.setText("Informacion");
+
+        jButton1.setText("Ver Salario");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         volverjButton.setText("Volver");
         volverjButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -45,11 +59,9 @@ public class Salud extends javax.swing.JFrame {
                 volverjButtonMouseClicked(evt);
             }
         });
-
-        jButton1.setText("Ver Salario");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        volverjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverjButtonActionPerformed(evt);
             }
         });
 
@@ -60,31 +72,31 @@ public class Salud extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel1))
+                        .addGap(146, 146, 146)
+                        .addComponent(administrativoTitulojLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addContainerGap()
                         .addComponent(informacionjLabel)))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(volverjButton)
-                .addGap(23, 23, 23))
+                .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addContainerGap()
+                .addComponent(administrativoTitulojLabel)
+                .addGap(60, 60, 60)
                 .addComponent(informacionjLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volverjButton)
-                    .addComponent(jButton1))
-                .addGap(41, 41, 41))
+                    .addComponent(jButton1)
+                    .addComponent(volverjButton))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,19 +113,26 @@ public class Salud extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+         Salario salarioAdministrativo = new Salario();
+       salarioAdministrativo.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void volverjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverjButtonMouseClicked
         Hospital loginFrame = new Hospital();
-       loginFrame.setVisible(true);
+        loginFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverjButtonMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       Salario salarioSalud = new Salario();
-       salarioSalud.setVisible(true);
-        this.dispose();
-        
-        
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void volverjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volverjButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,28 +151,28 @@ public class Salud extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Salud().setVisible(true);
+                new Administrativo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel administrativoTitulojLabel;
     private javax.swing.JLabel informacionjLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton volverjButton;
     // End of variables declaration//GEN-END:variables

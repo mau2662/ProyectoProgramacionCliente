@@ -51,15 +51,12 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="usuariojLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="contrasenajLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="contrasenajPasswordField" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="contrasenajPasswordField" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -95,7 +92,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="usuariojLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Usiuario:"/>
+            <Property name="text" type="java.lang.String" value="Usuario:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="contrasenajLabel">

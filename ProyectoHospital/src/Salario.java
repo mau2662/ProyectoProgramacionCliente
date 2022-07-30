@@ -8,12 +8,11 @@
  *
  * @author XCPC
  */
-public class Salud extends javax.swing.JFrame {
+public class Salario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Salud
-     */
-    public Salud() {
+     
+ 
+    public Salario() {
         initComponents();
         this.setLocationRelativeTo(this);
     }
@@ -28,16 +27,14 @@ public class Salud extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        informacionjLabel = new javax.swing.JLabel();
+        salarioTitulojLabel = new javax.swing.JLabel();
         volverjButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Salud");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        informacionjLabel.setText("Informacion");
+        salarioTitulojLabel.setText("Salario");
 
         volverjButton.setText("Volver");
         volverjButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -46,45 +43,25 @@ public class Salud extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Ver Salario");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(167, 167, 167)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(informacionjLabel)))
-                .addContainerGap(218, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(volverjButton)
-                .addGap(23, 23, 23))
+                    .addComponent(volverjButton)
+                    .addComponent(salarioTitulojLabel))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(35, 35, 35)
-                .addComponent(informacionjLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volverjButton)
-                    .addComponent(jButton1))
-                .addGap(41, 41, 41))
+                .addGap(26, 26, 26)
+                .addComponent(salarioTitulojLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
+                .addComponent(volverjButton)
+                .addGap(65, 65, 65))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,18 +79,11 @@ public class Salud extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverjButtonMouseClicked
-        Hospital loginFrame = new Hospital();
-       loginFrame.setVisible(true);
+     
+        Salud saludFrame = new Salud();
+        saludFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverjButtonMouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       Salario salarioSalud = new Salario();
-       salarioSalud.setVisible(true);
-        this.dispose();
-        
-        
-    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -132,29 +102,30 @@ public class Salud extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Salud().setVisible(true);
+                new Salario().setVisible(true);
             }
         });
     }
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel informacionjLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel salarioTitulojLabel;
     private javax.swing.JButton volverjButton;
     // End of variables declaration//GEN-END:variables
 }

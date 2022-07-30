@@ -8,14 +8,14 @@
  *
  * @author XCPC
  */
-public class Salud extends javax.swing.JFrame {
+public class FichaClinica extends javax.swing.JFrame {
 
     /**
-     * Creates new form Salud
+     * Creates new form FichaClinica
      */
-    public Salud() {
+    public FichaClinica() {
         initComponents();
-        this.setLocationRelativeTo(this);
+          this.setLocationRelativeTo(this);
     }
 
     /**
@@ -29,27 +29,23 @@ public class Salud extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        informacionjLabel = new javax.swing.JLabel();
-        volverjButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        volverjButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Salud");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        informacionjLabel.setText("Informacion");
+        jLabel1.setText("Ficha Clinica");
 
-        volverjButton.setText("Volver");
-        volverjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        volverjButton1.setText("Volver");
+        volverjButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                volverjButtonMouseClicked(evt);
+                volverjButton1MouseClicked(evt);
             }
         });
-
-        jButton1.setText("Ver Salario");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        volverjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverjButton1ActionPerformed(evt);
             }
         });
 
@@ -58,33 +54,22 @@ public class Salud extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(informacionjLabel)))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addGap(150, 150, 150)
+                .addComponent(jLabel1)
+                .addContainerGap(190, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(volverjButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(volverjButton1)
                 .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
-                .addComponent(informacionjLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volverjButton)
-                    .addComponent(jButton1))
-                .addGap(41, 41, 41))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 512, Short.MAX_VALUE)
+                .addComponent(volverjButton1)
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,19 +86,15 @@ public class Salud extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void volverjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverjButtonMouseClicked
-        Hospital loginFrame = new Hospital();
-       loginFrame.setVisible(true);
+    private void volverjButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverjButton1MouseClicked
+        Paciente paciente = new Paciente();
+        paciente.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_volverjButtonMouseClicked
+    }//GEN-LAST:event_volverjButton1MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       Salario salarioSalud = new Salario();
-       salarioSalud.setVisible(true);
-        this.dispose();
-        
-        
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void volverjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverjButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volverjButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,29 +113,27 @@ public class Salud extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FichaClinica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FichaClinica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FichaClinica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Salud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FichaClinica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Salud().setVisible(true);
+                new FichaClinica().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel informacionjLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton volverjButton;
+    private javax.swing.JButton volverjButton1;
     // End of variables declaration//GEN-END:variables
 }
