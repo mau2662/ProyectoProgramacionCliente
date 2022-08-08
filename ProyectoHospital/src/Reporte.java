@@ -2,8 +2,9 @@ import java.io.*;
 import javax.swing.JOptionPane;
 
 public class Reporte {
-    private static String cedula, nombre, diagnostico, telefono, email, tratamiento;
-    private static int edad;
+    protected static String cedula, nombre, diagnostico, telefono, email, tratamiento;
+    protected static int edad;
+    
     
     public static void generarReporte(){
         try{
@@ -34,8 +35,10 @@ public class Reporte {
         }
         
     }
+
+   
     
-    public void buscar(){
+    public void leerReporte(){
         String ced,nom,diag,tel,ema,trat;
         int ed;
         
