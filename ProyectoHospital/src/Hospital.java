@@ -1,3 +1,12 @@
+
+import static Reporte.cedula;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +22,9 @@ public class Hospital extends javax.swing.JFrame {
     /**
      * Creates new form Hospital
      */
+    String host = "localhost";
+    int port = 32000;
+    
     public Hospital() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -54,6 +66,11 @@ public class Hospital extends javax.swing.JFrame {
         loginjButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginjButtonMouseClicked(evt);
+            }
+        });
+        loginjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginjButtonActionPerformed(evt);
             }
         });
 
@@ -112,11 +129,30 @@ public class Hospital extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginjButtonMouseClicked
+
+        String nombre = usuariojTextArea.getText();
+        String contrasena = contrasenajPasswordField.getText();
+        
+        try(Socket socket = new Socket(host,port)){
+           
+           PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
+           BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+           
+           out.println();
+       
+       }catch(IOException e){
+           e.printStackTrace();
+       }
+        
         Salud saludFrame = new Salud();
         saludFrame.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_loginjButtonMouseClicked
+
+    private void loginjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginjButtonActionPerformed
 
     /**
      * @param args the command line arguments
