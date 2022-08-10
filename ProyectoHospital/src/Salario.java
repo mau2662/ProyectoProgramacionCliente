@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,6 +32,12 @@ public class Salario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         salarioTitulojLabel = new javax.swing.JLabel();
         volverjButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButtonHorasNormales = new javax.swing.JButton();
+        jButtonHorasDobles = new javax.swing.JButton();
+        jButtonHorasTriples = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,23 +52,80 @@ public class Salario extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Calcule el salario normal");
+
+        jLabel2.setText("Calcule el salario con horas dobles");
+
+        jLabel3.setText("Calcule el salario con horas triples");
+
+        jButtonHorasNormales.setText("Calcular");
+        jButtonHorasNormales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHorasNormalesMouseClicked(evt);
+            }
+        });
+        jButtonHorasNormales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHorasNormalesActionPerformed(evt);
+            }
+        });
+
+        jButtonHorasDobles.setText("Calcular");
+        jButtonHorasDobles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHorasDoblesMouseClicked(evt);
+            }
+        });
+        jButtonHorasDobles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHorasDoblesActionPerformed(evt);
+            }
+        });
+
+        jButtonHorasTriples.setText("Calcular");
+        jButtonHorasTriples.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHorasTriplesMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+                .addGap(85, 85, 85)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonHorasNormales)
                     .addComponent(volverjButton)
-                    .addComponent(salarioTitulojLabel))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addComponent(salarioTitulojLabel)
+                    .addComponent(jButtonHorasDobles)
+                    .addComponent(jButtonHorasTriples))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(salarioTitulojLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButtonHorasNormales))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jButtonHorasDobles))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonHorasTriples)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
                 .addComponent(volverjButton)
                 .addGap(65, 65, 65))
         );
@@ -84,6 +150,70 @@ public class Salario extends javax.swing.JFrame {
         saludFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverjButtonMouseClicked
+
+    private void jButtonHorasNormalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHorasNormalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHorasNormalesActionPerformed
+
+    private void jButtonHorasNormalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHorasNormalesMouseClicked
+                int HorasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese las horas trabajadas"));
+                if(HorasTrabajadas<=48){
+                int Sueldo = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese el sueldo por horas"));
+                int SalarioFinal = HorasTrabajadas*Sueldo;
+                JOptionPane.showMessageDialog(null,"Horas trabajadas: " +HorasTrabajadas+"\n Sueldo por hora:" +Sueldo+
+            "\n Salario: "+SalarioFinal);
+                }else {
+                    JOptionPane.showMessageDialog(null, " Las horas ingresadas no cumplen con esta opcion, Revise el total de horas"
+                        + "e ingres en la opcion correcta");
+                }
+                
+    }//GEN-LAST:event_jButtonHorasNormalesMouseClicked
+
+    private void jButtonHorasDoblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHorasDoblesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHorasDoblesActionPerformed
+
+    private void jButtonHorasDoblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHorasDoblesMouseClicked
+        int HorasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Ingrese las horas trabajadas"));
+         if (HorasTrabajadas>48 && HorasTrabajadas<=55 ) {
+                    int Sueldo =Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese el sueldo por horas"));
+                    int HorasExtras = HorasTrabajadas -48;
+                    int ValorExtras = HorasExtras*Sueldo*2;
+                    int SalarioNormal = Sueldo*HorasTrabajadas;
+                    int SalarioFinal = SalarioNormal+ValorExtras;
+                    
+                    JOptionPane.showMessageDialog(null,"Horas trabajadas: " +HorasTrabajadas+"\n Sueldo por hora:" +Sueldo+
+           "\n Horas extras:" +HorasExtras+ "\n Salario: "+SalarioFinal);
+                }else{
+                
+                JOptionPane.showMessageDialog(null, " Las horas ingresadas no cumplen con esta opcion, Revise el total de horas"
+                        + "e ingres en la opcion correcta");
+                }
+    }//GEN-LAST:event_jButtonHorasDoblesMouseClicked
+
+    private void jButtonHorasTriplesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHorasTriplesMouseClicked
+        int HorasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Ingrese las horas trabajadas"));
+         if (HorasTrabajadas>55 ) {
+                    int Sueldo =Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese el sueldo por horas"));
+                    int HorasExtras = HorasTrabajadas -48;
+                    int ValorExtras = HorasExtras*Sueldo*3;
+                    int SalarioNormal = Sueldo*HorasTrabajadas;
+                    int SalarioFinal = SalarioNormal+ValorExtras;
+                    
+                    JOptionPane.showMessageDialog(null,"Horas trabajadas: " +HorasTrabajadas+"\n Sueldo por hora:" +Sueldo+
+           "\n Horas extras:" +HorasExtras+ "\n Salario: "+SalarioFinal);
+                }else{
+                
+                JOptionPane.showMessageDialog(null, " Las horas ingresadas no cumplen con esta opcion, Revise el total de horas"
+                        + "e ingres en la opcion correcta");
+                }
+    }//GEN-LAST:event_jButtonHorasTriplesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -124,6 +254,12 @@ public class Salario extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonHorasDobles;
+    private javax.swing.JButton jButtonHorasNormales;
+    private javax.swing.JButton jButtonHorasTriples;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel salarioTitulojLabel;
     private javax.swing.JButton volverjButton;
