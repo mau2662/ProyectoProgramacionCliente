@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author XCPC
@@ -24,7 +23,7 @@ public class Hospital extends javax.swing.JFrame {
      */
     String host = "localhost";
     int port = 32000;
-    
+
     public Hospital() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -43,10 +42,9 @@ public class Hospital extends javax.swing.JFrame {
         nombreHospitaljLabel = new javax.swing.JLabel();
         usuariojLabel = new javax.swing.JLabel();
         contrasenajLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        usuariojTextArea = new javax.swing.JTextArea();
         contrasenajPasswordField = new javax.swing.JPasswordField();
         loginjButton = new javax.swing.JButton();
+        usuariojTextArea = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,11 +54,11 @@ public class Hospital extends javax.swing.JFrame {
 
         contrasenajLabel.setText("Contrasena");
 
-        usuariojTextArea.setColumns(20);
-        usuariojTextArea.setRows(5);
-        jScrollPane1.setViewportView(usuariojTextArea);
-
-        contrasenajPasswordField.setText("jPasswordField1");
+        contrasenajPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contrasenajPasswordFieldActionPerformed(evt);
+            }
+        });
 
         loginjButton.setText("Login");
         loginjButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,26 +72,34 @@ public class Hospital extends javax.swing.JFrame {
             }
         });
 
+        usuariojTextArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuariojTextAreaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(loginjButton)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(140, 140, 140)
-                            .addComponent(nombreHospitaljLabel))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(usuariojLabel)
-                                .addComponent(contrasenajLabel)
-                                .addComponent(contrasenajPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(loginjButton)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(nombreHospitaljLabel))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(usuariojLabel)
+                                    .addComponent(contrasenajLabel)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(contrasenajPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuariojTextArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(176, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,9 +109,9 @@ public class Hospital extends javax.swing.JFrame {
                 .addComponent(nombreHospitaljLabel)
                 .addGap(86, 86, 86)
                 .addComponent(usuariojLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(33, 33, 33)
+                .addComponent(usuariojTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96)
                 .addComponent(contrasenajLabel)
                 .addGap(18, 18, 18)
                 .addComponent(contrasenajPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,29 +136,69 @@ public class Hospital extends javax.swing.JFrame {
 
     private void loginjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginjButtonMouseClicked
 
-        String nombre = usuariojTextArea.getText();
-        String contrasena = contrasenajPasswordField.getText();
-        
-        try(Socket socket = new Socket(host,port)){
-           
-           PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
-           BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-           
-           out.println();
-       
-       }catch(IOException e){
-           e.printStackTrace();
-       }
-        
-        Salud saludFrame = new Salud();
-        saludFrame.setVisible(true);
-        this.dispose();
+        if (usuariojTextArea.getText().equals("MauricioVargasLogin") && contrasenajPasswordField.getText().equals("mauricio")) {
+            Salud saludFrame = new Salud();
+            saludFrame.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido Doctor Mauricio Vargas");
+            this.dispose();
+            return;
+        }
+
+        if (usuariojTextArea.getText().equals("ChristianBermudezLogin") && contrasenajPasswordField.getText().equals("chris")) {
+            Salud saludFrame = new Salud();
+            saludFrame.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido Doctor Christian Bermudez");
+            this.dispose();
+            return;
+        }
+        if (usuariojTextArea.getText().equals("MauricioSandiLogin") && contrasenajPasswordField.getText().equals("sandi")) {
+            Paciente pacienteFrame = new Paciente();
+            pacienteFrame.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido Mauricio");
+            this.dispose();
+            return;
+
+        }
+        if (usuariojTextArea.getText().equals("AndresLopezLogin") && contrasenajPasswordField.getText().equals("andres")) {
+            Paciente pacienteFrame = new Paciente();
+            pacienteFrame.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido Andres");
+            this.dispose();
+            return;
+
+        } else if (usuariojTextArea.getText().equals("") || contrasenajPasswordField.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Usuario o contrasena vacios");
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario o contrasena Incorrectos");
+
+        }
+
+        try ( Socket socket = new Socket(host, port)) {
+
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            out.println();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }//GEN-LAST:event_loginjButtonMouseClicked
 
     private void loginjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginjButtonActionPerformed
+
+    private void contrasenajPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenajPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contrasenajPasswordFieldActionPerformed
+
+    private void usuariojTextAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariojTextAreaActionPerformed
+
+    }//GEN-LAST:event_usuariojTextAreaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,10 +239,9 @@ public class Hospital extends javax.swing.JFrame {
     private javax.swing.JLabel contrasenajLabel;
     private javax.swing.JPasswordField contrasenajPasswordField;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loginjButton;
     private javax.swing.JLabel nombreHospitaljLabel;
     private javax.swing.JLabel usuariojLabel;
-    private javax.swing.JTextArea usuariojTextArea;
+    private javax.swing.JTextField usuariojTextArea;
     // End of variables declaration//GEN-END:variables
 }
