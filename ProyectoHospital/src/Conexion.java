@@ -5,24 +5,24 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class Conexion extends Reporte{
-    private Connection conector;
+  
     private Statement state;
-    private ResultSet rs;
 
-    public Conexion(Connection conector, Statement state, ResultSet rs, String diagnostico, String tratamiento, String cedula, String nombre, String telefono, String email, int edad) {
-        super(diagnostico, tratamiento, cedula, nombre, telefono, email, edad);
-        this.conector = conector;
-        this.state = state;
-        this.rs = rs;
+    public Conexion(String diagnostico, String tratamiento, String cita, String cedula, String nombre, String telefono, String email, int edad) {
+        super(diagnostico, tratamiento, cita, cedula, nombre, telefono, email, edad);
+       
     }
     
     
     
-private void conectarDB(){
+    
+    
+public void conectarDB(){
     try{
-        conector = DriverManager.getConnection("jdbc:derby://localhost:1527/shopmedb;create=true");
+        Connection conector = DriverManager.getConnection("jdbc:derby://localhost:1527/shopmedb;create=true");
         state = conector.createStatement();
     }catch(SQLException ex){
         System.out.println(ex);
@@ -30,11 +30,20 @@ private void conectarDB(){
         }
     }
 
-private void guardarDB(){
+public void guardarDB(){
     try{
+            cedula= JOptionPane.showInputDialog(null,"Digite el numerode su cedula");
+            nombre= JOptionPane.showInputDialog(null,"Digite su nombre");
+            edad= Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Digite la edad"));
+            diagnostico = JOptionPane.showInputDialog(null,"Digite el diagnostico");
+            telefono = JOptionPane.showInputDialog(null,"Digite el telefono");
+            email = JOptionPane.showInputDialog(null,"Digite el email");
+            tratamiento = JOptionPane.showInputDialog(null,"Digite el tratamiento");
+            cita = JOptionPane.showInputDialog(null,"Digite la fecha de la cita en formato DD/MM/aaaa");
             
             state.executeUpdate("INSERT INTO PACIENTES VALUES ("+cedula+","+nombre+","+","+edad+
-                    ","+diagnostico+","+telefono+","+email+","+tratamiento+")");
+                    ","+diagnostico+","+telefono+","+email+","+tratamiento+cita+")");
         }catch(SQLException e){
                 System.out.println(e);
         }
@@ -43,9 +52,9 @@ private void guardarDB(){
 }
 
         
-private void leerDB(){
+public void leerDB(){
 try{
-            rs = state.executeQuery("SELECT * FROM PACIENTES");
+            ResultSet rs = state.executeQuery("SELECT * FROM PACIENTES");
             int numFila = 0;
             rs.next();
             do{

@@ -2,12 +2,14 @@ import java.io.*;
 import javax.swing.JOptionPane;
 
 public class Reporte extends Persona {
-    protected  String diagnostico, tratamiento;
+    protected  String diagnostico, tratamiento,cita;
 
-    public Reporte(String diagnostico, String tratamiento, String cedula, String nombre, String telefono, String email, int edad) {
+    public Reporte(String diagnostico, String tratamiento,String cita, String cedula, String nombre, String telefono, String email, int edad) {
         super(cedula, nombre, telefono, email, edad);
         this.diagnostico = diagnostico;
         this.tratamiento = tratamiento;
+        this.cita = cita;
+        
     }
     
     

@@ -4,6 +4,10 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /*
@@ -169,6 +173,9 @@ public class Paciente extends javax.swing.JFrame {
 
     private void moduloCitajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moduloCitajButtonActionPerformed
         // TODO add your handling code here:
+        Conexion conexion = new Conexion("1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
+       conexion.conectarDB();
+       conexion.guardarDB();
     }//GEN-LAST:event_moduloCitajButtonActionPerformed
 
     private void moduloCitajButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moduloCitajButtonMouseClicked
