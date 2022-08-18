@@ -1,3 +1,8 @@
+
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +14,6 @@
  * @author XCPC
  */
 public class Salud extends javax.swing.JFrame {
-
     /**
      * Creates new form Salud
      */
@@ -32,6 +36,7 @@ public class Salud extends javax.swing.JFrame {
         informacionjLabel = new javax.swing.JLabel();
         volverjButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +58,13 @@ public class Salud extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Generar Reporte");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -60,31 +72,33 @@ public class Salud extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
+                        .addGap(161, 161, 161)
+                        .addComponent(informacionjLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(informacionjLabel)))
-                .addContainerGap(218, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(volverjButton)
-                .addGap(23, 23, 23))
+                        .addGap(137, 137, 137)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(volverjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addGap(46, 46, 46)
                 .addComponent(informacionjLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volverjButton)
-                    .addComponent(jButton1))
-                .addGap(41, 41, 41))
+                .addGap(55, 55, 55)
+                .addComponent(jButton1)
+                .addGap(54, 54, 54)
+                .addComponent(jButton2)
+                .addGap(62, 62, 62)
+                .addComponent(volverjButton)
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,6 +128,38 @@ public class Salud extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String cedula, nombre, diagnostico, telefono, email, tratamiento;
+        int edad;
+        try{
+            DataOutputStream archivo = new DataOutputStream(
+        new FileOutputStream("pacientes.txt", true));
+            cedula = JOptionPane.showInputDialog(null,"Digite la cedula");
+            nombre = JOptionPane.showInputDialog(null,"Digite el nombre");
+            edad = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Digite la edad"));
+            diagnostico = JOptionPane.showInputDialog(null,"Digite el diagnostico");
+            telefono = JOptionPane.showInputDialog(null,"Digite el telefono");
+            email = JOptionPane.showInputDialog(null,"Digite el email");
+            tratamiento = JOptionPane.showInputDialog(null,"Digite el tratamiento");
+            
+            archivo.writeUTF(cedula);
+            archivo.writeUTF(nombre);
+            archivo.writeInt(edad);
+            archivo.writeUTF(diagnostico);
+            archivo.writeUTF(telefono);
+            archivo.writeUTF(email);
+            archivo.writeUTF(tratamiento);
+            JOptionPane.showMessageDialog(null,"Reporte generado correctamente!",
+                    "Datos agregados", JOptionPane.INFORMATION_MESSAGE);
+            archivo.close();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Error al generar el reporte", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +199,7 @@ public class Salud extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel informacionjLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton volverjButton;

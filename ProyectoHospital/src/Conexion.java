@@ -10,6 +10,15 @@ public class Conexion extends Reporte{
     private Connection conector;
     private Statement state;
     private ResultSet rs;
+
+    public Conexion(Connection conector, Statement state, ResultSet rs, String diagnostico, String tratamiento, String cedula, String nombre, String telefono, String email, int edad) {
+        super(diagnostico, tratamiento, cedula, nombre, telefono, email, edad);
+        this.conector = conector;
+        this.state = state;
+        this.rs = rs;
+    }
+    
+    
     
 private void conectarDB(){
     try{

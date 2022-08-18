@@ -1,3 +1,11 @@
+
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -85,6 +93,11 @@ public class Paciente extends javax.swing.JFrame {
                 fichaClinicajButtonMouseClicked(evt);
             }
         });
+        fichaClinicajButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fichaClinicajButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,28 +108,27 @@ public class Paciente extends javax.swing.JFrame {
                 .addComponent(volverjButton1)
                 .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(moduloCitajButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(fichaClinicajButton)))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(moduloCitajButton)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(164, 164, 164)
+                            .addComponent(jLabel1))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(136, 136, 136)
+                            .addComponent(fichaClinicajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(40, 40, 40)
                 .addComponent(jLabel1)
-                .addGap(122, 122, 122)
+                .addGap(85, 85, 85)
                 .addComponent(moduloCitajButton)
-                .addGap(150, 150, 150)
+                .addGap(100, 100, 100)
                 .addComponent(fichaClinicajButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
                 .addComponent(volverjButton1)
                 .addGap(33, 33, 33))
         );
@@ -170,6 +182,51 @@ public class Paciente extends javax.swing.JFrame {
         fichaClinica.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_fichaClinicajButtonMouseClicked
+
+    private void fichaClinicajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fichaClinicajButtonActionPerformed
+        // TODO add your handling code here:
+        String ced,nom,diag,tel,ema,trat;
+        int ed;
+        
+        String nomb = JOptionPane.showInputDialog(null,"Digite el nombre a "
+                + "buscar:");
+        
+        try{
+            DataInputStream archivo = new DataInputStream(
+        new FileInputStream("pacientes.txt"));
+            try{
+                while(true){
+                    ced = archivo.readUTF();
+                    nom = archivo.readUTF();
+                    ed = archivo.readInt();
+                    diag = archivo.readUTF();
+                    tel = archivo.readUTF();
+                    ema = archivo.readUTF();
+                    trat = archivo.readUTF();
+                    
+                    if(nomb.equals(nom)){
+                        JOptionPane.showMessageDialog(null, 
+                                "La persona "+nom+" cuya cedula es "+ced+
+                                        " presenta el siguiente diagnostico "+diag+
+                                        "para el cual se le receto el siguiente"
+                                                + " tratamiento: "+trat);
+                    }
+                    else{
+                    }
+                }
+            }catch(EOFException ex){
+                archivo.close();
+            }
+        }catch(FileNotFoundException ex){
+            JOptionPane.showMessageDialog(null,
+                    "El reporte no existe","Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null,
+                    "Error Desconocido","Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_fichaClinicajButtonActionPerformed
 
     /**
      * @param args the command line arguments

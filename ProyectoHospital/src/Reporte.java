@@ -1,12 +1,19 @@
 import java.io.*;
 import javax.swing.JOptionPane;
 
-public class Reporte {
-    protected static String cedula, nombre, diagnostico, telefono, email, tratamiento;
-    protected static int edad;
+public class Reporte extends Persona {
+    protected  String diagnostico, tratamiento;
+
+    public Reporte(String diagnostico, String tratamiento, String cedula, String nombre, String telefono, String email, int edad) {
+        super(cedula, nombre, telefono, email, edad);
+        this.diagnostico = diagnostico;
+        this.tratamiento = tratamiento;
+    }
     
     
-    public static void generarReporte(){
+
+    
+    public void generarReporte(){
         try{
             DataOutputStream archivo = new DataOutputStream(
         new FileOutputStream("pacientes.txt", true));
