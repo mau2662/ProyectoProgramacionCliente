@@ -75,7 +75,7 @@ try{
 }
 }
 
-private void ConexionLogin (){
+public  void ConexionServer (){
     ServerSocket server = null;
     
     try{

@@ -1,9 +1,12 @@
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -25,6 +28,9 @@ public class Paciente extends javax.swing.JFrame {
     /**
      * Creates new form Paciente
      */
+    private String host ="localhost";
+    int port = 32001;
+    
     public Paciente() {
         initComponents();
           this.setLocationRelativeTo(this);
@@ -46,6 +52,7 @@ public class Paciente extends javax.swing.JFrame {
         volverjButton1 = new javax.swing.JButton();
         moduloCitajButton = new javax.swing.JButton();
         fichaClinicajButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         informacionjLabel.setText("Informacion");
 
@@ -103,6 +110,13 @@ public class Paciente extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Consultar Citas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,16 +126,20 @@ public class Paciente extends javax.swing.JFrame {
                 .addComponent(volverjButton1)
                 .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(moduloCitajButton)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(164, 164, 164)
-                            .addComponent(jLabel1))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(136, 136, 136)
-                            .addComponent(fichaClinicajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(164, 164, 164)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(fichaClinicajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(moduloCitajButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jButton1)))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,9 +148,11 @@ public class Paciente extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(85, 85, 85)
                 .addComponent(moduloCitajButton)
-                .addGap(100, 100, 100)
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addGap(47, 47, 47)
                 .addComponent(fichaClinicajButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                 .addComponent(volverjButton1)
                 .addGap(33, 33, 33))
         );
@@ -179,9 +199,25 @@ public class Paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_moduloCitajButtonActionPerformed
 
     private void moduloCitajButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moduloCitajButtonMouseClicked
-        GestionarCita gestionarCita = new GestionarCita();
-        gestionarCita.setVisible(true);
-        this.dispose();
+        Conexion conexion = new Conexion("1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
+       conexion.conectarDB();
+       conexion.ConexionServer();
+       
+        String registroBuscar= JOptionPane.showInputDialog(null,
+                    "Ingrese el numero de registro que desea buscar");
+       
+         try ( Socket socket = new Socket(host, port)) {
+
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            out.print(registroBuscar);
+            out.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       
     }//GEN-LAST:event_moduloCitajButtonMouseClicked
 
     private void fichaClinicajButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fichaClinicajButtonMouseClicked
@@ -235,6 +271,27 @@ public class Paciente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fichaClinicajButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Conexion conexion = new Conexion("1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
+       conexion.conectarDB();
+       conexion.ConexionServer();
+       
+         String registroBuscar= JOptionPane.showInputDialog(null,
+                    "Ingrese el numero de registro que desea buscar");
+       
+         try ( Socket socket = new Socket(host, port)) {
+
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            out.print(registroBuscar);
+            out.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +330,7 @@ public class Paciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton fichaClinicajButton;
     private javax.swing.JLabel informacionjLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton moduloCitajButton;
