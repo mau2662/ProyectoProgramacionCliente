@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -30,6 +31,7 @@ public class Paciente extends javax.swing.JFrame {
      */
     private String host ="localhost";
     int port = 32001;
+    protected Statement state;
     
     public Paciente() {
         initComponents();
@@ -193,15 +195,16 @@ public class Paciente extends javax.swing.JFrame {
 
     private void moduloCitajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moduloCitajButtonActionPerformed
         // TODO add your handling code here:
-        Conexion conexion = new Conexion("1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
+        Conexion conexion = new Conexion(state,"1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
        conexion.conectarDB();
        conexion.guardarDB();
     }//GEN-LAST:event_moduloCitajButtonActionPerformed
 
     private void moduloCitajButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moduloCitajButtonMouseClicked
-        Conexion conexion = new Conexion("1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
-       conexion.conectarDB();
-       conexion.ConexionServer();
+
+        Conexion conexion = new Conexion(state,"1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
+        conexion.conectarDB();
+        conexion.ConexionServer();
        
         String registroBuscar= JOptionPane.showInputDialog(null,
                     "Ingrese el numero de registro que desea buscar");
@@ -272,7 +275,7 @@ public class Paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_fichaClinicajButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Conexion conexion = new Conexion("1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
+        Conexion conexion = new Conexion(state,"1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
        conexion.conectarDB();
        conexion.ConexionServer();
        

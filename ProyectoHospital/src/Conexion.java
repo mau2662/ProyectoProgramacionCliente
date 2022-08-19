@@ -9,11 +9,12 @@ import javax.swing.JOptionPane;
 
 public class Conexion extends Reporte{
   
-    private Statement state;
+    protected Statement state;
+    
 
-    public Conexion(String diagnostico, String tratamiento, String cita, String cedula, String nombre, String telefono, String email, int edad) {
+    public Conexion(Statement state, String diagnostico, String tratamiento, String cita, String cedula, String nombre, String telefono, String email, int edad) {
         super(diagnostico, tratamiento, cita, cedula, nombre, telefono, email, edad);
-       
+        this.state = state;
     }
     
     
