@@ -35,7 +35,7 @@ public class Paciente extends javax.swing.JFrame {
     
     public Paciente() {
         initComponents();
-          this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -72,8 +72,9 @@ public class Paciente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         jLabel1.setText("Paciente");
 
         volverjButton1.setText("Volver");
@@ -123,40 +124,36 @@ public class Paciente extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(volverjButton1)
-                .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(fichaClinicajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(moduloCitajButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(136, 136, 136)
-                        .addComponent(jButton1)))
-                .addContainerGap(158, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(volverjButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moduloCitajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fichaClinicajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(74, 74, 74)
                 .addComponent(jLabel1)
-                .addGap(85, 85, 85)
+                .addGap(84, 84, 84)
                 .addComponent(moduloCitajButton)
-                .addGap(28, 28, 28)
+                .addGap(44, 44, 44)
                 .addComponent(jButton1)
-                .addGap(47, 47, 47)
+                .addGap(40, 40, 40)
                 .addComponent(fichaClinicajButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                .addGap(60, 60, 60)
                 .addComponent(volverjButton1)
-                .addGap(33, 33, 33))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -196,8 +193,8 @@ public class Paciente extends javax.swing.JFrame {
     private void moduloCitajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moduloCitajButtonActionPerformed
         // TODO add your handling code here:
         Conexion conexion = new Conexion(state,"1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
-       conexion.conectarDB();
-       conexion.guardarDB();
+        conexion.conectarDB();
+        conexion.guardarDB();
     }//GEN-LAST:event_moduloCitajButtonActionPerformed
 
     private void moduloCitajButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moduloCitajButtonMouseClicked
@@ -275,7 +272,7 @@ public class Paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_fichaClinicajButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Conexion conexion = new Conexion(state,"1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
+       Conexion conexion = new Conexion(state,"1 ","2 ","3 ","4 ","5 ","6 ","7 ",0);
        conexion.conectarDB();
        conexion.ConexionServer();
        

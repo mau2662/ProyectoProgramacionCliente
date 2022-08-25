@@ -33,7 +33,7 @@ public class GestionarCita extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         gestionarCitaTituloijLabel.setText("Gestionar Cita");
 

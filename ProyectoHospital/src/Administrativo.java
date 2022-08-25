@@ -29,17 +29,15 @@ public class Administrativo extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         administrativoTitulojLabel = new javax.swing.JLabel();
-        informacionjLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         volverjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
+        administrativoTitulojLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         administrativoTitulojLabel.setText("Administrativo");
-
-        informacionjLabel.setText("Informacion");
 
         jButton1.setText("Ver Salario");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,31 +68,23 @@ public class Administrativo extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
+                .addGap(126, 126, 126)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(volverjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(administrativoTitulojLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(administrativoTitulojLabel)
-                        .addGap(7, 7, 7)))
-                .addContainerGap(166, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(informacionjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(157, 157, 157))
+                    .addComponent(volverjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(102, 102, 102)
                 .addComponent(administrativoTitulojLabel)
-                .addGap(61, 61, 61)
-                .addComponent(informacionjLabel)
-                .addGap(101, 101, 101)
+                .addGap(106, 106, 106)
                 .addComponent(jButton1)
-                .addGap(113, 113, 113)
+                .addGap(96, 96, 96)
                 .addComponent(volverjButton)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,7 +159,6 @@ public class Administrativo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel administrativoTitulojLabel;
-    private javax.swing.JLabel informacionjLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton volverjButton;

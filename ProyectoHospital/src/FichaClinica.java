@@ -33,7 +33,7 @@ public class FichaClinica extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setText("Ficha Clinica");
 

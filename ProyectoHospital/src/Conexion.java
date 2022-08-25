@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import com.mysql.jdbc.*;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -22,8 +23,9 @@ public class Conexion extends Reporte{
     
     
 public void conectarDB(){
+    
     try{
-        Connection conector = DriverManager.getConnection("jdbc:derby://localhost:1527/shopmedb;create=true");
+        Connection conector = DriverManager.getConnection("jdbc:sqlserver://database-proyecto-hospital.database.windows.net:1433;database=PACIENTES;user=adminazure@database-proyecto-hospital;password={4dm1n4ZUR3};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         state = conector.createStatement();
     }catch(SQLException ex){
         System.out.println(ex);
@@ -43,8 +45,8 @@ public void guardarDB(){
             tratamiento = JOptionPane.showInputDialog(null,"Digite el tratamiento");
             cita = JOptionPane.showInputDialog(null,"Digite la fecha de la cita en formato DD/MM/aaaa");
             
-            state.executeUpdate("INSERT INTO PACIENTES VALUES ("+cedula+","+nombre+","+","+edad+
-                    ","+diagnostico+","+telefono+","+email+","+tratamiento+cita+")");
+            state.executeUpdate("INSERT INTO DATOSPACIENTES VALUES ("+cedula+","+nombre+","+edad+","+
+                    diagnostico+","+telefono+","+email+","+tratamiento+","+cita+")");
         }catch(SQLException e){
                 System.out.println(e);
         }
@@ -55,7 +57,7 @@ public void guardarDB(){
         
 public void leerDB(){
 try{
-            ResultSet rs = state.executeQuery("SELECT * FROM PACIENTES");
+            ResultSet rs = state.executeQuery("SELECT * FROM DATOSPACIENTES");
             int numFila = 0;
             rs.next();
             do{
