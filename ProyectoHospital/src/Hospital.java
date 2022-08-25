@@ -151,9 +151,9 @@ public class Hospital extends javax.swing.JFrame {
         }
 
         if (usuariojTextArea.getText().equals("ChristianBermudezLogin") && contrasenajPasswordField.getText().equals("chris")) {
-            Salud saludFrame = new Salud();
-            saludFrame.setVisible(true);
-            JOptionPane.showMessageDialog(null, "Bienvenido Doctor Christian Bermudez");
+            Administrativo adminFrame = new Administrativo();
+            adminFrame.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido Christian Bermudez");
             this.dispose();
             return;
         }
