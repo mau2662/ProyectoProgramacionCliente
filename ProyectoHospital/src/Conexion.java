@@ -55,9 +55,9 @@ public void guardarDB(){
 }
 
         
-public void leerDB(){
+public void leerDB(String line){
 try{
-            ResultSet rs = state.executeQuery("SELECT * FROM DATOSPACIENTES");
+            ResultSet rs = state.executeQuery("SELECT * FROM DATOSPACIENTES WHERE CEDULA ="+ line );
             int numFila = 0;
             rs.next();
             do{
@@ -112,7 +112,8 @@ class ClientHandler implements Runnable{
                     clientSocket.getInputStream()));
              String line = null;
              while((line = in.readLine()) != null){
-             /*codigo donde busca en la BD la cedula y contrasena*/
+             //codigo donde busca en la BD la cedula 
+             leerDB(line);
              }
        }catch(IOException e){
         e.printStackTrace();

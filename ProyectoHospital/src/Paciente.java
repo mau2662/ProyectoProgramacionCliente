@@ -277,7 +277,7 @@ public class Paciente extends javax.swing.JFrame {
        conexion.ConexionServer();
        
          String registroBuscar= JOptionPane.showInputDialog(null,
-                    "Ingrese el numero de registro que desea buscar");
+                    "Ingrese su numero de cedula que desea buscar");
        
          try ( Socket socket = new Socket(host, port)) {
 
