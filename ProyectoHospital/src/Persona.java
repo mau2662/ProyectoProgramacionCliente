@@ -1,5 +1,5 @@
 
-public class Persona {
+public abstract class Persona {
     protected  String cedula, nombre, telefono, email;
     protected  int edad;
 
