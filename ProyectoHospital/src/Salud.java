@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author XCPC
  */
 public class Salud extends javax.swing.JFrame {
+
     /**
      * Creates new form Salud
      */
@@ -50,6 +50,11 @@ public class Salud extends javax.swing.JFrame {
                 volverjButtonMouseClicked(evt);
             }
         });
+        volverjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverjButtonActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ver Salario");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -57,8 +62,13 @@ public class Salud extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Generar Reporte");
+        jButton2.setText("Ver Reporte Paciente");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -80,20 +90,20 @@ public class Salud extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(jLabel1)))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(jLabel1)
-                .addGap(78, 78, 78)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(54, 54, 54)
+                .addGap(78, 78, 78)
                 .addComponent(jButton2)
-                .addGap(62, 62, 62)
+                .addGap(107, 107, 107)
                 .addComponent(volverjButton)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addGap(119, 119, 119))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,49 +122,33 @@ public class Salud extends javax.swing.JFrame {
 
     private void volverjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverjButtonMouseClicked
         Hospital loginFrame = new Hospital();
-       loginFrame.setVisible(true);
+        loginFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverjButtonMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       Salario salarioSalud = new Salario();
-       salarioSalud.setVisible(true);
+        Salario salarioSalud = new Salario();
+        salarioSalud.setVisible(true);
         this.dispose();
-        
-        
+
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        String cedula, nombre, diagnostico, telefono, email, tratamiento;
-        int edad;
-        try{
-            DataOutputStream archivo = new DataOutputStream(
-        new FileOutputStream("pacientes.txt", true));
-            cedula = JOptionPane.showInputDialog(null,"Digite la cedula");
-            nombre = JOptionPane.showInputDialog(null,"Digite el nombre");
-            edad = Integer.parseInt(JOptionPane.showInputDialog(null,
-                    "Digite la edad"));
-            diagnostico = JOptionPane.showInputDialog(null,"Digite el diagnostico");
-            telefono = JOptionPane.showInputDialog(null,"Digite el telefono");
-            email = JOptionPane.showInputDialog(null,"Digite el email");
-            tratamiento = JOptionPane.showInputDialog(null,"Digite el tratamiento");
-            
-            archivo.writeUTF(cedula);
-            archivo.writeUTF(nombre);
-            archivo.writeInt(edad);
-            archivo.writeUTF(diagnostico);
-            archivo.writeUTF(telefono);
-            archivo.writeUTF(email);
-            archivo.writeUTF(tratamiento);
-            JOptionPane.showMessageDialog(null,"Reporte generado correctamente!",
-                    "Datos agregados", JOptionPane.INFORMATION_MESSAGE);
-            archivo.close();
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Error al generar el reporte", "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        }
+        FichaClinica fichaClinica = new FichaClinica();
+        fichaClinica.setVisible(true);
+        this.dispose();
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void volverjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volverjButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
